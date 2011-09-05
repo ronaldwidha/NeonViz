@@ -1,0 +1,119 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+v2.0 | 20110126
+License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video
+{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section
+{
+    display: block;
+}
+body
+{
+    line-height: 1;
+}
+ol, ul
+{
+    list-style: none;
+}
+blockquote, q
+{
+    quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after
+{
+    content: '';
+    content: none;
+}
+table
+{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/* end reset */
+body
+{
+    font-family: Arial;
+}
+.legend
+{
+    list-style-type: none;
+    width: 200px;
+    float: left;
+}
+.groupHeader
+{
+    font-weight: bold;
+}
+.node
+{
+    background-color: #ddd;
+    border: #333;
+    width: 3px;
+    height: 10px;
+    float: left;
+    -moz-border-radius: 35px;
+    border-radius: 35px;
+}
+.itemRow
+{
+    clear: both;
+    margin-bottom: 3px;
+}
+.start0
+{
+    margin-left: 0px;
+}
+.start1
+{
+    margin-left: 30px;
+}
+.start2
+{
+    margin-left: 60px;
+}
+.start3
+{
+    margin-left: 90px;
+}
+.start4
+{
+    margin-left: 120px;
+}
+.start5
+{
+    margin-left: 120px;
+}
+.length0
+{
+    width: 30px;
+}
+.length1
+{
+    width: 60px;
+}
+.length2
+{
+    width: 90px;
+}
+.length3
+{
+    width: 120px;
+}
+.length4
+{
+    width: 150px;
+}
+.length5
+{
+    width: 180px;
+}

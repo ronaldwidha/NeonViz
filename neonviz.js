@@ -1,5 +1,6 @@
-///<reference path="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"/>
+///<reference path="jquery-1.6.2.min.js"/>
 
+// ENTRY POINTS: plugin entry points
 (function ($) {
     $.fn.addGroup = function (groupId, groupName) {
         var vizCanvas = findOrCreateVizCanvas(this.selector);
@@ -13,7 +14,8 @@
     };
 })(jQuery);
 
-// change to array
+// GLOBAL
+// todo: change to array
 var canvasInstance = null;
 
 var findOrCreateVizCanvas = function (canvasName) {
@@ -24,14 +26,10 @@ var findOrCreateVizCanvas = function (canvasName) {
     return canvasInstance;
 };
 
-var generateNodeName = function (groupName, itemName) {
-    var nodeName = "node_" + groupName + "_" + this.name;
-};
 /* MODEL: canvas */
 var VizCanvas = function (name) {
     this.name = name;
 };
-
 
 VizCanvas.prototype.addGroup = function (groupId, groupName) {
     // return model
@@ -56,10 +54,10 @@ var VizGroup = function (id, name) {
     this.html = '<li id="' + this.htmlId + '" class="itemRow"><div class="legend groupHeader">' + this.name + '</div></li>';
 };
 
-VizGroup.prototype.addItem = function (itemId, itemName, startPos, endPos) {
+VizGroup.prototype.addItem = function (itemId, itemName, startPos, length) {
 
     // return model
-    var item = new VizItem(itemId, itemName);
+    var item = new VizItem(itemId, itemName, startPos, length);
 
     // modify html
     var groupDOM = $('#' + this.htmlId);
@@ -72,11 +70,10 @@ VizGroup.prototype.addItem = function (itemId, itemName, startPos, endPos) {
 
     var innerItemsDOM = $('#' + innerItemsListId);
 
-    innerItemsDOM.append('<li class="itemRow"><div class="legend">' + itemName + '</div><div class="node start' + startPos + ' length' + endPos + '">&nbsp;</div></li>');
-
-    //groupDOM.append(item.html);
+    innerItemsDOM.append(item.html());
 
     this.items.push(item);
+
     return item;
 };
 
@@ -89,8 +86,14 @@ VizGroup.prototype.generateInnerItemsID = function (itemId) {
 };
 
 /* MODEL: Item */
-var VizItem = function (id, name) {
+var VizItem = function (id, name, startPos, length) {
     this.id = id;
     this.name = name;
     this.node = null;
+    this.startPos = startPos;
+    this.length = length;
+};
+
+VizItem.prototype.html = function () {
+    return '<li class="itemRow"><div class="legend">' + this.name + '</div><div class="node start' + this.startPos + ' length' + this.length + '">&nbsp;</div></li>';
 };
